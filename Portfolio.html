@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="obj" style="position : absolute"></div>
+
+    <header>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+          <i class="fa fa-bars" id="miniBarI"></i>
+          <div class="miniBarBack" id="miniBarBack">
+              <a href="#home">Home</a>
+              <a href="#portfolio">Portfolio</a>
+              <a href="#">Blog</a>
+              <a href="#">Contact</a>
+          </div>
+      </header>
+
+    <section id="home">
+
+      <main class="container">
+        <p>Hello <div class="shaking_hand">👋</div> I'm</p>
+        <section class="animation">
+          <div class="first"><div>Bayezit Karajayev</div></div>
+          <div class="second"><div>Web Developer</div></div>
+          <div class="third"><div>Future Pentester</div></div>
+        </section>
+      </main>
+
+      <div class="about">
+        <div class="my_photo">
+            <img src="images/IMG_20230510_071253.jpg" alt="Autor Photo">
+        </div>
+        <div class="about_me">
+            Hey! My name is BAYEZIT and I'm a&nbsp;<span class="typewriter thick"></span>. I finished web-development course. Also, I have expiriences in TEAMWORK and i was a TEAM-LEAD. In 2021 I went to soft-skills course, I did great and I do. I'm communicative, leadership, positive-thinker, hard-working, proactive. I'm learning fast. And I love programming. So look at my portfolio.
+        </div>
+      </div>
+
+    </section>
+        
+    <section id="portfolio">
+        <div class="photos_of_works">
+                        <h2 style="padding-left: 5%;">Here is my works:</h2>
+                        <div>
+                            <div class="photos_back" id="imageFull"><img src="images/works/Screenshot 2023-09-13 225255.png" alt="Photo"><div class="overlay"><div class="photos_name">The copy of Belet Film</div></div></div>
+                            <div class="photos_back" id="imageFull"><img src="images/works/Screenshot 2023-09-13 225948.png" alt="Photo"><div class="overlay"><div class="photos_name">My animated form</div></div></div>
+                            <div class="photos_back" id="imageFull"><img src="images/works/Screenshot 2023-09-13 225357.png" alt="Photo"><div class="overlay"><div class="photos_name">My movie site v2</div></div></div>
+                            <div class="photos_back" id="imageFull"><img src="images/works/Screenshot 2023-09-15 210716.png" alt="Photo"><div class="overlay"><div class="photos_name">Dana Education Center site</div></div></div>
+                            <div class="photos_back" id="imageFull"><img src="images/works/Screenshot 2023-09-16 190658.png" alt="Photo"><div class="overlay"><div class="photos_name">My movie site v1</div></div></div>
+                        </div>
+                        
+                    </div>
+    </section>
+      <div class="sidebar">
+        <div><i class="fa fa-instagram" id="instagram"></i></div>
+        <div><i class="fa fa-telegram" id="telegram"></i></div>
+        <div><i class="fa fa-facebook-square" id="facebook"></i></div>
+        <div><i class="fa fa-twitter" id="twitter"></i></div>
+
+      </div>
+      <button onclick="topFunction()" id="upBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
+
+
+</body>
+
+<script>
+
+document.addEventListener("click", function(e) {
+    let m = document.getElementById('miniBarBack');
+    let n = document.getElementById('miniBarI');
+        if (e.target.id != 'miniBarI' && e.target.id != 'miniBarBack') {
+            m.style = 'opacity: 0; margin-top: -220px';
+            n.style = 'transform: rotate(0deg)'
+        } else if (e.target.id == 'miniBarI') {
+            m.style = (m.style != 'opacity: 1; margin-top: 0px;') ? 'opacity: 1; margin-top: 0px;' : 'opacity: 0; margin-top: -220px';
+            n.style = 'transform: rotate(90deg)'
+          }
+});
+
+    document.getElementById('facebook').onclick = function() {
+        window.location.href = 'https://facebook.com';
+    };
+    document.getElementById('telegram').onclick = function() {
+        window.location.href = 'https://telegram.com';
+    };
+    document.getElementById('instagram').onclick = function() {
+        window.location.href = 'https://instagram.com';
+    };
+    document.getElementById('twitter').onclick = function() {
+        window.location.href = 'https://twitter.com';
+    };
+
+    window.addEventListener('load', function () {
+    var O = document.getElementById('obj'),
+    X = 0,
+    Y = 0,mouseX=0,mouseY=0;
+     window.addEventListener('mousemove', function (ev) {
+            ev = window.event || ev;
+    X=ev.pageX;
+     Y=ev.pageY;
+    });
+     
+        function move() {
+            var p = 'px';
+            console.log(X,Y);
+            O.style.left = X +p;
+            O.style.top = Y +  p;
+            
+            setTimeout(move, 1);
+        }
+        move();
+     
+    });
+
+    // When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("upBtn").style.display = "block";
+    } else {
+        document.getElementById("upBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+    </script>
+</html>
